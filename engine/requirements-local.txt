@@ -1,0 +1,8 @@
+# Local mode add-ons (not in the hash-locked runtime). Install into engine/.venv:
+#   uv pip install --python engine/.venv/Scripts/python.exe -r engine/requirements-local.txt
+anthropic>=0.116
+faster-whisper>=1.2
+# CUDA 12 runtime for faster-whisper on NVIDIA GPUs (Windows/Linux). Without a
+# GPU, Local mode falls back to the CPU automatically.
+nvidia-cublas-cu12; platform_machine == "AMD64" or platform_machine == "x86_64"
+nvidia-cudnn-cu12>=9,<10; platform_machine == "AMD64" or platform_machine == "x86_64"
